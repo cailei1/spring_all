@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="user1" class="com.cl.bean.User">
+
+      <property name="userId" value="1"></property>
+      <property name="userName" value="cailei"></property>
+      <property name="password" value="123456"></property>
+   </bean>
+
+    <bean id="user2" class="com.cl.bean.User">
+
+        <constructor-arg name="userId" value="2"></constructor-arg>
+        <constructor-arg name="userName" value="小黑"></constructor-arg>
+        <constructor-arg name="password" value="2dfsa"></constructor-arg>
+    </bean>
+
+<!--    p c 名称空间赋值-->
+
+    <bean id="user3" class="com.cl.bean.User" p:userId="3" p:userName="小白" p:password="342q"/>
+
+    <bean id="user4" class="com.cl.bean.User" p:userId="4" p:userName="小四" p:password="3fasdf42q"/>
+
+</beans>
