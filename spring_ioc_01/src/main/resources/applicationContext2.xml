@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--  特殊字符赋值如何做 ？？？？ -->
+
+    <bean id="user1" class="com.cl.bean.User">
+        <property name="userId">
+<!--            赋予空值  -->
+            <null></null>
+        </property>
+<!--        转义字符 -->
+        <property name="userName" value="&amp; xiaoming &lt; &gt;"></property>
+
+        <property name="password">
+            <value><![CDATA[&<123456>]]></value>
+        </property>
+    </bean>
+
+</beans>

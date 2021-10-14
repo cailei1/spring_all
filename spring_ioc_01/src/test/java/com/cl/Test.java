@@ -1,6 +1,6 @@
 package com.cl;
 
-import com.cl.bean.User;
+import com.cl.bean.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -20,6 +20,42 @@ public class Test {
         System.out.println(user2);
         System.out.println(user3);
         System.out.println(user4);
+
+    }
+
+
+    @org.junit.Test
+    public void testMouseAndCat(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext3.xml");
+
+        Mouse mouse = context.getBean("mouse", Mouse.class);
+
+        Cat cat = context.getBean("cat", Cat.class);
+
+        Cat cat2 = context.getBean("cat2", Cat.class);
+        System.out.println(mouse);
+        System.out.println(cat2);
+
+    }
+
+    @org.junit.Test
+    public void testBeanList(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext4.xml");
+
+        Student student1 = context.getBean("student1", Student.class);
+
+        System.out.println(student1);
+
+    }
+
+
+    @org.junit.Test
+    public void testBeanFactory(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext5.xml");
+
+        Book book = context.getBean("book", Book.class);
+
+        System.out.println(book);
 
     }
 }
