@@ -1,5 +1,6 @@
 package com.cl;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.cl.bean.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -58,4 +59,28 @@ public class Test {
         System.out.println(book);
 
     }
+
+
+    @org.junit.Test
+    public void testautoWireBean(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext6.xml");
+
+        Emp emp = context.getBean("emp", Emp.class);
+
+        System.out.println(emp);
+
+    }
+
+    @org.junit.Test
+    public void testDbConnection(){
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext7.xml");
+
+        DruidDataSource dataSource = context.getBean("dataSource", DruidDataSource.class);
+
+        System.out.println(dataSource);
+
+    }
+
+
+
 }
