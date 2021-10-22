@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<!--    spring 注解扫描-->
+    <context:component-scan base-package="com.cl"></context:component-scan>
+
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+
+<!--     配置durid 连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+
+        <property name="username" value="${jdbc_username}"></property>
+        <property name="password" value="${jdbc_password}"></property>
+        <property name="driverClassName" value="${jdbc_driver}"></property>
+        <property name="url" value="${jdbc_url}"></property>
+    </bean>
+
+
+
+<!--    配置jdbcTemplate 对象 并注入 dataSource 对象-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+
+
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+</beans>
